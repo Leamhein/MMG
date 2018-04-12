@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'PressStart-Regular';
+    font-weight: 400;
+
+    src: url(../fonts/PressStart2P-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'VT323-Regular';
+    font-weight: 400;
+
+    src: url(../fonts/VT323-Regular.ttf);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.content {
+    width: 1100px;
+}
+
+h2 {
+    font-family: 'PressStart-Regular';
+    font-size: 26px;
+    text-align: center;
+    color: #fefe00;
+}
+
+p {
+    font-family: 'VT323-Regular';
+    font-size: 32px;
+    color: white;
+    padding: 0;
+    margin: 5px 0;
+    text-align: center;
+}
+
+ol {
+    font-family: 'VT323-Regular';
+    font-size: 32px;
+    color: white;
+    text-align: left;
+    width: 60%;
+    margin: 0 auto;
+}
