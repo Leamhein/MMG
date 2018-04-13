@@ -5,9 +5,19 @@
     <meta charset="UTF-8">
     <title>Memmory Game</title>
     <link rel="stylesheet" href="CSS/index.css">
+    <script>
+        window.onload = function() {
+            document.getElementById('difficult').onchange = function() {
+                var iframe = document.getElementsByTagName('iframe')[0].contentWindow;
+                iframe.postMessage(this.selectedIndex, '*');
+            }
+        };
+
+    </script>
 </head>
 
 <body>
+
     <header>
         <div class="container">
             <div class="header_logo">
@@ -17,7 +27,7 @@
                 <ul>
                     <li>
                         <form>
-                            <select>
+                            <select id="card_back">
                                 <option value disabled selected hidden>Card Type</option>
                                 <option value="1"></option>
                                 <option value="2"></option>
@@ -27,11 +37,11 @@
                     </li>
                     <li>
                         <form>
-                            <select>
+                            <select id="difficult">
                                 <option value disabled selected hidden>Game Difficulty</option>
-                                <option value="low">Low</option>
-                                <option value="med">Medium</option>
-                                <option value="hard">Hard</option>
+                                <option>Low</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
                             </select>
                         </form>
                     </li>
@@ -49,7 +59,7 @@
     <main>
         <section class="main-window">
             <div class="container">
-                <iframe src="main.html" scrolling="no" name="content">
+                <iframe allow-scripts src="main.html" scrolling="no" name="content">
                 </iframe>
             </div>
         </section>

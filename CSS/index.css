@@ -120,12 +120,12 @@ iframe {
 }
 
 
-
+/* -----------------FOOTER------------------ */
 
 footer {
     height: 70px;
     width: 100%;
-    background-color: #606d7d;
+    background-color: #2d3945;
     border-top: 2px solid black;
 }
 

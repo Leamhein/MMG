@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'PressStart-Regular';
+    font-weight: 400;
+
+    src: url(../fonts/PressStart2P-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'VT323-Regular';
+    font-weight: 400;
+
+    src: url(../fonts/VT323-Regular.ttf);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 1100px;
+    height: calc(100vh - 175px);
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'VT323-Regular';
+    font-size: 26px;
+    color: white;
+}
+
+.container {
+    height: 100%;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+div#memory_board {
+    /*Обложка игрового стола*/
+    background: #606d7d;
+    border: 2px solid black;
+    width: 90%;
+    height: 100%;
+    padding: 30px 24px;
+    margin: 0px auto;
+}
+
+div#memory_board > div {
+    /*стили обложек игровых карт*/
+    background-image: url(../Images/card_back.png);
+    background-size: cover;
+    width: 105px;
+    height: 150px;
+    display: inline-block;
+    margin: 4px;
+    padding: 5px;
+    font-size: 64px;
+    cursor: pointer;
+    text-align: center;
+}
