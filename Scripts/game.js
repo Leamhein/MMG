@@ -1,6 +1,6 @@
 let hard = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L'],
-    med = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I'],
-    low = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F'];
+    med = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
+    low = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'];
 let memory_array = [],
     memory_values = [],
     memory_tile_ids = [],
@@ -16,21 +16,21 @@ Array.prototype.shuffle = function () { /* array shuffle function */
 
 function newBoard() {
     let output = '';
-    memory_array = med.shuffle();
-    function listener (event) {
-        alert(typeof event.data);
-        switch (event.data) {
-            case 1:
-                memory_array = low.shuffle();
-                break;
-            case 2:
-                break;
-            case 3:
-                memory_array = hard.shuffle();
-                break;
-        };
+    switch (localStorage.getItem('difficult')) {
+        case 'low':
+            memory_array = low.shuffle();
+            break;
+        case 'med':
+            memory_array = med.shuffle();
+            break;
+        case 'hard':
+            memory_array = hard.shuffle();
+            break;
+        case null:
+            memory_array = med.shuffle();
+            break;
     };
-    window.addEventListener("message", listener);
+    
     tiles_flipped = 0;
 
     (function (array) {
