@@ -37,7 +37,7 @@ div#memory_board {
     background: #606d7d;
     border: 2px solid black;
     width: 90%;
-    height: 100%;
+    height: 90vh;
     padding: 30px 24px;
     margin: 0px auto;
 }
