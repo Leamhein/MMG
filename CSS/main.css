@@ -2,14 +2,14 @@
     font-family: 'PressStart-Regular';
     font-weight: 400;
 
-    src: url(../fonts/PressStart2P-Regular.ttf);
+    src: url('../fonts/PressStart2P-Regular.ttf');
 }
 
 @font-face {
     font-family: 'VT323-Regular';
     font-weight: 400;
 
-    src: url(../fonts/VT323-Regular.ttf);
+    src: url('../fonts/VT323-Regular.ttf');
 }
 
 html {

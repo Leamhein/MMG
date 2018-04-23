@@ -30,12 +30,12 @@ function newBoard() {
             memory_array = med.shuffle();
             break;
     };
-    
+
     tiles_flipped = 0;
 
     (function (array) {
         for (let i = 0, length = array.length; i < length; i++) {
-            output += '<div id="tile_' + i + '" onclick="memoryFlipTile(this,\'' + array[i] + '\')"></div>';
+            output += '<div id=tile_' + i + ' class=card ' + ' onclick="memoryFlipTile(this,\'' + array[i] + '\')"></div>';
         }
     })(memory_array);
     document.getElementById('memory_board').innerHTML = output;

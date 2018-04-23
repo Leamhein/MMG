@@ -2,14 +2,14 @@
     font-family: 'PressStart-Regular';
     font-weight: 400;
 
-    src: url(../fonts/PressStart2P-Regular.ttf);
+    src: url('../fonts/PressStart2P-Regular.ttf');
 }
 
 @font-face {
     font-family: 'VT323-Regular';
     font-weight: 400;
 
-    src: url(../fonts/VT323-Regular.ttf);
+    src: url('../fonts/VT323-Regular.ttf');
 }
 
 html {
@@ -37,12 +37,11 @@ div#memory_board {
     background: #606d7d;
     border: 2px solid black;
     width: 90%;
-    height: 90vh;
-    padding: 30px 24px;
-    margin: 0px auto;
+    height: 100vh;
+    margin: 0 auto;
 }
 
-div#memory_board > div {
+.card {
     /*стили обложек игровых карт*/
     background-image: url(../Images/card_back.png);
     background-size: cover;
@@ -54,4 +53,16 @@ div#memory_board > div {
     font-size: 64px;
     cursor: pointer;
     text-align: center;
+}
+
+.timer {
+    width: 160px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background: #8e908f;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    
 }
