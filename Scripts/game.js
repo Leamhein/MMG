@@ -6,6 +6,8 @@ let memory_array = [],
     memory_tile_ids = [],
     tiles_flipped = 0;
 
+window.onload = newBoard;
+
 Array.prototype.shuffle = function () { /* array shuffle function */
     for (let i = this.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -42,23 +44,34 @@ function newBoard() {
 }
 
 function timer() {
-    let miliseconds = 0,
-    seconds = 0,
-    minutes = 0;
-    
-    function counter () {
-        document.getElementById('miliseconds').innerHTML = miliseconds;
-        miliseconds++;
-        if (miliseconds == 60) {
-            miliseconds = 0;
+    let milliseconds = 0,
+        seconds = 0,
+        minutes = 0;
+    setInterval(counter, 100);
+
+    function counter() {
+        document.getElementById("milliseconds").innerHTML = milliseconds;
+        if (seconds < 10) {
+            document.getElementById("seconds").innerHTML = '0' + seconds;
+        } else {
+            document.getElementById("seconds").innerHTML = seconds
+        }
+        if (minutes < 10) {
+            document.getElementById("minutes").innerHTML = '0' + minutes;
+        } else {
+            document.getElementById("minutes").innerHTML = minutes;
+        }
+        milliseconds++;
+        if (milliseconds > 9) {
             seconds++;
-            document.getElementById('seconds').innerHTML = seconds;
+            milliseconds = 0;
         }
-        if (seconds == 60) {
-            seconds = 0;
+        if (seconds > 59) {
             minutes++;
-            document.getElementById('minutes').innerHTML = minutes;
+            seconds = 0;
         }
-        setTimeout(counter(), 100);
+        if (minutes < 10) {
+            document.getElementById("minutes").innerHTML = '0' + minutes;
+        }
     }
 }
