@@ -12,13 +12,22 @@
     <main>
         <section class="game">
             <div class="container">
-                <div id="memory_board">
-
-                    <script>
-                        newBoard()
-
-                    </script>
-                    <div class="timer"></div>
+                <div class="memory_board">
+                    <div class="timer">
+                        <div id="minutes" class="time"></div>
+                        <div class="divider">:</div>
+                        <div id="seconds" class="time"></div>
+                        <div class="divider">:</div>
+                        <div id="miliseconds" class="time"></div>
+                    </div>
+                    <div id="card-container">
+                        <script>
+                            newBoard()
+                        </script>
+                        <script>
+                            timer()
+                        </script>
+                    </div>
                 </div>
             </div>
         </section>

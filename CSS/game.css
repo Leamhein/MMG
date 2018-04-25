@@ -32,7 +32,7 @@ body {
     margin: 0 auto;
 }
 
-div#memory_board {
+.memory_board {
     /*Обложка игрового стола*/
     background: #606d7d;
     border: 2px solid black;
@@ -56,13 +56,36 @@ div#memory_board {
 }
 
 .timer {
-    width: 160px;
+    width: 220px;
     height: 50px;
-    margin: 0 auto;
-    margin-top: 40px;
-    background: #8e908f;
+    margin: 20px auto;
+
+    background: #2d3945;
     border: 2px solid black;
     border-radius: 5px;
     text-align: center;
     
+}
+.time {
+    width: 60px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    float: left;
+    
+    font-family: 'VT323-Regular';
+    font-size: 60px;
+    line-height: 50px;
+}
+
+.divider {
+    width: 20px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    float: left;
+    
+    font-family: 'VT323-Regular';
+    font-size: 50px;
+    line-height: 50px;
 }
