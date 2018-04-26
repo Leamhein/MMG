@@ -4,7 +4,8 @@ let hard = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G'
 let memory_array = [],
     memory_values = [],
     memory_tile_ids = [],
-    tiles_flipped = 0;
+    tiles_flipped = 0,
+    card_shirt;
 
 window.onload = newBoard;
 
@@ -32,12 +33,26 @@ function newBoard() {
             memory_array = med.shuffle();
             break;
     };
+    switch (localStorage.getItem('card_shirt')) {
+        case 'first':
+            document.getElementsByClassName("elementID").style.backgroundPosition
+            break;
+        case 'second':
+            card_shirt = "background-position: 585px";
+            break;
+        case 'third':
+            card_shirt = "background-position: -585px";
+            break;
+        case null:
+            card_shirt = "background-position: 0px";
+            break;
+    };
 
     tiles_flipped = 0;
 
     (function (array) {
         for (let i = 0, length = array.length; i < length; i++) {
-            output += '<div id=tile_' + array[i] + ' class=card ' + ' onclick="memoryFlipTile(this,\'' + array[i] + '\')"></div>';
+            output += '<div id=tile_' + array[i] + ' class=\"card\" ' + ' onclick=\"memoryFlipTile(this,\'' + array[i] + '\'\")' + 'style=\"'+ card_shirt'\"></div>';
         }
     })(memory_array);
     document.getElementById('card-container').innerHTML = output;
@@ -47,7 +62,9 @@ function timer() {
     let milliseconds = 0,
         seconds = 0,
         minutes = 0;
-    setInterval(counter, 100);
+    this.start = function () {
+        setInterval(counter, 100)
+    };
 
     function counter() {
         document.getElementById("milliseconds").innerHTML = milliseconds;

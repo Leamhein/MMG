@@ -43,7 +43,7 @@ body {
 
 .card {
     /*стили обложек игровых карт*/
-    background-image: url(../Images/card_back.png);
+    background-image: url(../Images/card_shirts.png);
     background-size: cover;
     width: 105px;
     height: 150px;

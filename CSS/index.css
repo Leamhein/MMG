@@ -85,6 +85,10 @@ nav select {
     text-decoration: none;
 }
 
+nav select:first-child option:nth-child(1)::after {
+    content: url(../Images/card_shirts_ico.gif);
+}
+
 nav button {
     height: 40px;
     width: 200px;
@@ -168,7 +172,24 @@ div {
 }
 
 .social a {
+    display: inline-block;
     position: relative;
+    width: 16px;
+    height: 16px;
     top: 45px;
     right: 40px;
+}
+
+.social a:first-child {
+    background: url(../Images/social_ico.gif);
+}
+
+.social a:nth-child(2) {
+    background: url(../Images/social_ico.gif);
+    background-position: -16px 0;
+}
+
+.social a:last-child {
+    background: url(../Images/social_ico.gif);
+    background-position: 16px 0;
 }
