@@ -35,16 +35,16 @@ function newBoard() {
     };
     switch (localStorage.getItem('card_shirt')) {
         case 'first':
-            document.getElementsByClassName("elementID").style.backgroundPosition
+            card_shirt = '';
             break;
         case 'second':
-            card_shirt = "background-position: 585px";
+            card_shirt = 'style="background-position: 584px"';
             break;
         case 'third':
-            card_shirt = "background-position: -585px";
+            card_shirt = 'style="background-position: -586px"';
             break;
         case null:
-            card_shirt = "background-position: 0px";
+            card_shirt = '';
             break;
     };
 
@@ -52,43 +52,52 @@ function newBoard() {
 
     (function (array) {
         for (let i = 0, length = array.length; i < length; i++) {
-            output += '<div id=tile_' + array[i] + ' class=\"card\" ' + ' onclick=\"memoryFlipTile(this,\'' + array[i] + '\'\")' + 'style=\"'+ card_shirt'\"></div>';
+            output += `<div id="card_G" class="cards" onclick="FlipCard(this, 'G')" ${card_shirt}></div>`;
         }
     })(memory_array);
     document.getElementById('card-container').innerHTML = output;
-}
+    document.getElementById('card-container').addEventListener("click", selectElement);
 
-function timer() {
-    let milliseconds = 0,
-        seconds = 0,
-        minutes = 0;
-    this.start = function () {
-        setInterval(counter, 100)
-    };
+    function selectElement (event) {
+        let target = event.target;
+        if (target.className != 'cards') {
+            return;
+        }
+        timer();
+    }
+    
+    function timer() {
+        document.getElementById('card-container').removeEventListener("click", selectElement);
+        let milliseconds = 0,
+            seconds = 0,
+            minutes = 0;
+        setInterval(counter, 100);
 
-    function counter() {
-        document.getElementById("milliseconds").innerHTML = milliseconds;
-        if (seconds < 10) {
-            document.getElementById("seconds").innerHTML = '0' + seconds;
-        } else {
-            document.getElementById("seconds").innerHTML = seconds
-        }
-        if (minutes < 10) {
-            document.getElementById("minutes").innerHTML = '0' + minutes;
-        } else {
-            document.getElementById("minutes").innerHTML = minutes;
-        }
-        milliseconds++;
-        if (milliseconds > 9) {
-            seconds++;
-            milliseconds = 0;
-        }
-        if (seconds > 59) {
-            minutes++;
-            seconds = 0;
-        }
-        if (minutes < 10) {
-            document.getElementById("minutes").innerHTML = '0' + minutes;
+
+        function counter() {
+            document.getElementById('milliseconds').innerHTML = milliseconds;
+            if (seconds < 10) {
+                document.getElementById('seconds').innerHTML = '0' + seconds;
+            } else {
+                document.getElementById('seconds').innerHTML = seconds
+            }
+            if (minutes < 10) {
+                document.getElementById('minutes').innerHTML = '0' + minutes;
+            } else {
+                document.getElementById('minutes').innerHTML = minutes;
+            }
+            milliseconds++;
+            if (milliseconds > 9) {
+                seconds++;
+                milliseconds = 0;
+            }
+            if (seconds > 59) {
+                minutes++;
+                seconds = 0;
+            }
+            if (minutes < 10) {
+                document.getElementById('minutes').innerHTML = '0' + minutes;
+            }
         }
     }
-}
+};

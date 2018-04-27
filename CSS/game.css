@@ -41,7 +41,7 @@ body {
     margin: 0 auto;
 }
 
-.card {
+.cards {
     /*стили обложек игровых карт*/
     background-image: url(../Images/card_shirts.png);
     background-size: cover;
@@ -67,6 +67,7 @@ body {
     
 }
 .time {
+    width: 50px;
     height: 100%;
     padding: 0;
     margin: 0;
