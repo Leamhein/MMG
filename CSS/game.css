@@ -45,34 +45,56 @@ body {
     /*стили обложек игровых карт*/
     background-image: url(../Images/card_shirts.png);
     background-size: cover;
-    width: 105px;
+    width: 109px;
     height: 150px;
     display: inline-block;
-    margin: 4px;
-    padding: 5px;
+    margin: 7px;
+    /*padding: 5px;*/
     font-size: 64px;
     cursor: pointer;
     text-align: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out, opacity 1s linear 1s;
+    z-index: 2;
+}
+
+.rotate {
+    transform: rotateY(180deg);
+}
+
+.cards.hidden {
+    opacity: 0;
+}
+
+.card-face {
+    height: 100%;
+    width: 100%;
+    background: #111;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    line-height: 150px;
 }
 
 .timer {
     width: 190px;
     height: 50px;
-    margin: 20px auto;
+    margin: 10px auto;
 
     background: #2d3945;
     border: 2px solid black;
     border-radius: 5px;
     text-align: center;
-    
+
 }
+
 .time {
     width: 50px;
     height: 100%;
     padding: 0;
     margin: 0;
     float: left;
-    
+
     font-family: 'VT323-Regular';
     font-size: 60px;
     line-height: 50px;
@@ -84,10 +106,8 @@ body {
     padding: 0;
     margin: 0;
     float: left;
-    
+
     font-family: 'VT323-Regular';
     font-size: 50px;
     line-height: 50px;
 }
-
-

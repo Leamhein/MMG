@@ -2,14 +2,12 @@ let hard = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G'
     med = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
     low = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'];
 let memory_array = [],
-    memory_values = [],
-    memory_tile_ids = [],
-    tiles_flipped = 0,
+    cards_flipped = 0,
     card_shirt;
 
 window.onload = newBoard;
 
-Array.prototype.shuffle = function () { /* array shuffle function */
+Array.prototype.shuffle = function () { //array shuffle function
     for (let i = this.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [this[i], this[j]] = [this[j], this[i]];
@@ -17,8 +15,15 @@ Array.prototype.shuffle = function () { /* array shuffle function */
     return this;
 };
 
-function newBoard() {
-    let output = '';
+function newBoard() { //create new game board with cards
+    let output = '',
+        firstFlippedCard,
+        secondFlippedCard,
+        count = 0;
+
+    //flag which shows how many cards are flipped
+    cards_flipped = 0;
+    //choose cards quantity
     switch (localStorage.getItem('difficult')) {
         case 'low':
             memory_array = low.shuffle();
@@ -33,45 +38,44 @@ function newBoard() {
             memory_array = med.shuffle();
             break;
     };
+    //choose cards shirts
     switch (localStorage.getItem('card_shirt')) {
         case 'first':
             card_shirt = '';
             break;
         case 'second':
-            card_shirt = 'style="background-position: 584px"';
+            card_shirt = 'style="background-position: 548px"';
             break;
         case 'third':
-            card_shirt = 'style="background-position: -586px"';
+            card_shirt = 'style="background-position: -549px"';
             break;
         case null:
             card_shirt = '';
             break;
     };
 
-    tiles_flipped = 0;
-
-    (function (array) {
+    (function (array) { //create every card
         for (let i = 0, length = array.length; i < length; i++) {
-            output += `<div id="card_G" class="cards" onclick="FlipCard(this, 'G')" ${card_shirt}></div>`;
+            output += `<div id="card_${i} ${array[i]}" class="cards" ${card_shirt}><div class="card-face">${array[i]}</div></div>`;
         }
     })(memory_array);
+    //fill the game board with cards
     document.getElementById('card-container').innerHTML = output;
-    document.getElementById('card-container').addEventListener("click", selectElement);
 
-    function selectElement (event) {
-        let target = event.target;
+    document.getElementById('card-container').addEventListener("click", timer);
+    document.getElementById('card-container').addEventListener("click", flipCard);
+
+    function timer() {
+        let target = event.target,
+            milliseconds = 0,
+            seconds = 0,
+            minutes = 0;
         if (target.className != 'cards') {
             return;
         }
-        timer();
-    }
-    
-    function timer() {
-        document.getElementById('card-container').removeEventListener("click", selectElement);
-        let milliseconds = 0,
-            seconds = 0,
-            minutes = 0;
+        document.getElementById('card-container').removeEventListener("click", timer);
         setInterval(counter, 100);
+
 
 
         function counter() {
@@ -99,5 +103,42 @@ function newBoard() {
                 document.getElementById('minutes').innerHTML = '0' + minutes;
             }
         }
-    }
+    };
+
+    function flipCard() {
+
+        switch (cards_flipped) {
+            case 0:
+                if (event.target.id == "card-container") {
+                    break;
+                } else {
+                    if (firstFlippedCard !== undefined) {
+                        firstFlippedCard.classList.remove("rotate");
+                        secondFlippedCard.classList.remove("rotate");
+                    }
+                }
+                firstFlippedCard = document.getElementById(event.target.id);
+                firstFlippedCard.classList.add("rotate");
+                cards_flipped++;
+                break;
+
+            case 1:
+                if (event.target.id == "card-container") {
+                    break;
+                };
+                secondFlippedCard = document.getElementById(event.target.id);
+                secondFlippedCard.classList.add("rotate");
+                if (firstFlippedCard.id.split(' ')[1] == secondFlippedCard.id.split(' ')[1]) {
+                    firstFlippedCard.style.opacity = 0;
+                    secondFlippedCard.classList.add('hidden');
+                    count++;
+                };
+                if (count == (memory_array.length / 2)) {
+                    //stop timer
+                    //load new page
+                }
+                cards_flipped = 0;
+                break;
+        }
+    };
 };
