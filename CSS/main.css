@@ -12,14 +12,19 @@
     src: url('../fonts/VT323-Regular.ttf');
 }
 
-html {
+body {
+    width: 1100px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+}
+
+main {
     height: 100%;
 }
 
-body {
-    width: 1100px;
-    margin: 0 auto;
-    padding: 0;
+section {
+    height: 100%;
 }
 
 .container {
@@ -28,18 +33,14 @@ body {
     margin: 0 auto;
 }
 
-.content {
-    width: 1100px;
-}
-
-h2 {
+.rules h2 {
     font-family: 'PressStart-Regular';
     font-size: 26px;
     text-align: center;
     color: #fefe00;
 }
 
-p {
+.rules p {
     font-family: 'VT323-Regular';
     font-size: 32px;
     color: white;
@@ -48,11 +49,38 @@ p {
     text-align: center;
 }
 
-ol {
+.rules ol {
     font-family: 'VT323-Regular';
     font-size: 32px;
     color: white;
     text-align: left;
     width: 60%;
     margin: 0 auto;
+}
+
+.profile {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'VT323-Regular';
+    font-size: 32px;
+    color: #2d3945;
+    text-align: center;
+}
+
+.profile label {
+    width: 200px;
+    position: absolute;
+    margin: 10px 60px;
+}
+
+.profile input {
+    width: 210px;
+    padding: 3px;
+    margin: 50px 60px;
+    border: 2px solid #fefe00;
+    color: darkgray;
+    background: #2d3945;
+    font-family: 'VT323-Regular';
+    font-size: 20px;
 }

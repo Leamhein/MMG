@@ -12,10 +12,6 @@
     src: url('../fonts/VT323-Regular.ttf');
 }
 
-html {
-    height: 100%;
-}
-
 body {
     width: 1100px;
     height: calc(100vh - 175px);
@@ -33,16 +29,15 @@ body {
 }
 
 .memory_board {
-    /*Обложка игрового стола*/
     background: #606d7d;
     border: 2px solid black;
     width: 90%;
     height: 100vh;
     margin: 0 auto;
+    user-select: none;
 }
 
 .cards {
-    /*стили обложек игровых карт*/
     background-image: url(../Images/card_shirts.png);
     background-size: cover;
     width: 109px;
@@ -55,7 +50,7 @@ body {
     text-align: center;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transition: transform 1s ease-out, opacity 1s linear 1s;
+    transition: 1s ease-out;
     z-index: 2;
 }
 
@@ -63,8 +58,9 @@ body {
     transform: rotateY(180deg);
 }
 
-.cards.hidden {
+.hidden {
     opacity: 0;
+    visibility: hidden;
 }
 
 .card-face {

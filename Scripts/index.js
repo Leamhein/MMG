@@ -1,4 +1,5 @@
 window.onload = function () {
+    // save to localstorage type of choosen card
     document.getElementById('card_shirt').onchange = function () {
 
         switch (this.selectedIndex) {
@@ -11,8 +12,9 @@ window.onload = function () {
             case 3:
                 localStorage.setItem('card_shirt', 'third');
                 break;
-        };
+        }
     };
+    // save to local storage choosen game difficulty
     document.getElementById('difficult').onchange = function () {
 
         switch (this.selectedIndex) {
@@ -25,7 +27,6 @@ window.onload = function () {
             case 3:
                 localStorage.setItem('difficult', 'hard');
                 break;
-        };
+        }
     };
-
 };
